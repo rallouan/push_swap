@@ -6,11 +6,11 @@
 /*   By: rallouan <rallouan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/29 14:00:35 by rallouan          #+#    #+#             */
-/*   Updated: 2023/08/01 14:14:35 by rallouan         ###   ########.fr       */
+/*   Updated: 2023/08/07 20:47:13 by rallouan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 // Compares two numbers (in string form)
 // returns if they're equal or not (multiple signs included)
