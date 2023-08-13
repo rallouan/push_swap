@@ -6,7 +6,7 @@
 /*   By: rallouan <rallouan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/05 20:17:28 by rallouan          #+#    #+#             */
-/*   Updated: 2023/08/12 15:24:49 by rallouan         ###   ########.fr       */
+/*   Updated: 2023/08/13 16:35:28 by rallouan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,24 +16,24 @@
 
 //Rev rotates the stacks until one of them is in position
 static void	cost_rev_rotate_both(t_stack **stack_a, t_stack **stack_b,
-			int **costs, t_moves **moves)
+			int *costs, t_moves **moves)
 {
-	while (*costs[0] > 0 && *costs[1] > 0)
+	while (costs[0] > 0 && costs[1] > 0)
 	{
-		(*costs[0])--;
-		(*costs[1])--;
+		(costs[0])--;
+		(costs[1])--;
 		rev_rotate_both(stack_a, stack_b, moves);
 	}
 }
 
 //Rotates both stacks until one of them in position
 static void	cost_rotate_both(t_stack **stack_a, t_stack **stack_b,
-			int **costs, t_moves **moves)
+			int *costs, t_moves **moves)
 {
-	while (*costs[0] > 0 && *costs[1] > 0)
+	while (costs[0] > 0 && costs[1] > 0)
 	{
-		(*costs[0])--;
-		(*costs[1])--;
+		(costs[0])--;
+		(costs[1])--;
 		rotate_both(stack_a, stack_b, moves);
 	}
 }
@@ -83,9 +83,9 @@ void	cost_moves(t_stack **stack_a, t_stack **stack_b,
 				int *costs, t_moves **moves)
 {
 	if (costs[0] < 0 && costs[1] < 0)
-		cost_rev_rotate_both(stack_a, stack_b, &costs, moves);
+		cost_rev_rotate_both(stack_a, stack_b, costs, moves);
 	else if (costs[0] > 0 && costs[1] > 0)
-		cost_rotate_both(stack_a, stack_b, &costs, moves);
+		cost_rotate_both(stack_a, stack_b, costs, moves);
 	cost_rotate_a(stack_a, moves, &costs[0]);
 	cost_rotate_b(stack_b, moves, &costs[1]);
 	push_a(stack_a, stack_b, moves);
