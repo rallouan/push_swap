@@ -6,11 +6,11 @@
 /*   By: rallouan <rallouan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/29 16:23:32 by rallouan          #+#    #+#             */
-/*   Updated: 2023/07/30 16:02:40 by rallouan         ###   ########.fr       */
+/*   Updated: 2023/08/09 15:33:44 by rallouan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 #include <stdio.h>
 
 t_moves	*create_move(char *move)
@@ -72,13 +72,11 @@ void	remove_move(t_moves **moves, t_moves *m)
 
 void	ft_print_moves(t_moves *moves)
 {
-	printf("Moves values: ");
 	while (moves)
 	{
-		printf("%s ", moves->move);
+		printf("%s\n", moves->move);
 		moves = moves->next;
 	}
-	printf("\n");
 }
 
 void	ft_free_moves(t_moves **moves)
