@@ -6,7 +6,7 @@
 /*   By: rallouan <rallouan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/29 16:23:32 by rallouan          #+#    #+#             */
-/*   Updated: 2023/08/09 15:33:44 by rallouan         ###   ########.fr       */
+/*   Updated: 2023/08/13 18:11:28 by rallouan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,8 @@ void	ft_print_moves(t_moves *moves)
 {
 	while (moves)
 	{
-		printf("%s\n", moves->move);
+		ft_putstr_fd(moves->move, 1);
+		ft_putstr_fd("\n", 1);
 		moves = moves->next;
 	}
 }

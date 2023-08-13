@@ -6,7 +6,7 @@
 /*   By: rallouan <rallouan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 14:25:05 by rallouan          #+#    #+#             */
-/*   Updated: 2023/08/13 12:54:47 by rallouan         ###   ########.fr       */
+/*   Updated: 2023/08/13 18:08:35 by rallouan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	error_handling(t_stack **stack_a, t_stack **stack_b, t_moves **moves)
 		ft_free_stack(stack_b);
 	if (moves && (*moves))
 		ft_free_moves(moves);
-	printf("Error\n");
+	ft_putstr_fd("Error\n", 1);
 	exit(1);
 }
 
