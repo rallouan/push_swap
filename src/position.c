@@ -6,7 +6,7 @@
 /*   By: rallouan <rallouan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/05 14:43:02 by rallouan          #+#    #+#             */
-/*   Updated: 2023/08/13 15:12:47 by rallouan         ###   ########.fr       */
+/*   Updated: 2023/08/13 18:17:28 by rallouan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,10 +129,7 @@ void	cost_effective_move(t_stack **stack_a,
 	t_stack		*tmp;
 	int			best;
 	int			costs[2];
-	// int			sum_cost;
 
-	// ft_print_stack(*stack_b);
-	// ft_print_stack(*stack_a);
 	tmp = (*stack_b);
 	best = MAX_INT;
 	while (tmp)
