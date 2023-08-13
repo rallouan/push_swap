@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap copy.h                                   :+:      :+:    :+:   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rallouan <rallouan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/29 14:08:47 by rallouan          #+#    #+#             */
-/*   Updated: 2023/08/13 15:43:30 by rallouan         ###   ########.fr       */
+/*   Updated: 2023/08/13 18:09:16 by rallouan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ void		ft_add_head(t_stack **stack, t_stack *new);
 void		ft_add_end(t_stack **stack, t_stack *new);
 int			ft_stack_size(t_stack *stack);
 void		ft_free_stack(t_stack **stack);
-void		ft_print_stack(t_stack *stack);
+// void		ft_print_stack(t_stack *stack);
 
 //moves operations
 t_moves		*create_move(char *move);

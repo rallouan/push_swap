@@ -6,7 +6,7 @@
 /*   By: rallouan <rallouan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/29 14:43:05 by rallouan          #+#    #+#             */
-/*   Updated: 2023/08/09 17:42:35 by rallouan         ###   ########.fr       */
+/*   Updated: 2023/08/13 18:09:06 by rallouan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,12 +101,12 @@ void	ft_free_stack(t_stack **stack)
 }
 
 // //To be removed
-void	ft_print_stack(t_stack *stack)
-{
-	while (stack)
-	{
-		printf("%d ", stack->value);
-		stack = stack->next;
-	}
-	printf("\n");
-}
+// void	ft_print_stack(t_stack *stack)
+// {
+// 	while (stack)
+// 	{
+// 		printf("%d ", stack->value);
+// 		stack = stack->next;
+// 	}
+// 	printf("\n");
+// }
