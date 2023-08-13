@@ -6,47 +6,59 @@
 #    By: rallouan <rallouan@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/06 15:54:41 by rallouan          #+#    #+#              #
-#    Updated: 2023/08/06 15:58:03 by rallouan         ###   ########.fr        #
+#    Updated: 2023/08/07 20:43:55 by rallouan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-# Makefile to be fixed
+NAME		= push_swap
+CC			= gcc
+CFLAGS		= -Wall -Wextra -Werror
+RM 			= /bin/rm -f
 
-CC		= gcc
-CFLAGS	= -Wall -Werror -Wextra
-NAME	= push_swap
+INCS_DIR	= ./includes
+LIBFT_DIR	= ./libft
+LIBFT		= $(LIBFT_DIR)/libft.a
 
-SRC_PATH = src/
-OBJ_PATH = obj/
+BUILD_DIR	= build
+SRC_DIR		= ./srcs
+SRCS		= 	cost_op.c\
+					list_op.c\
+					moves_op.c\
+					parse_utils.c\
+					parse.c\
+					position.c\
+					push_swap.c\
+					push.c\
+					rev_rotate.c\
+					rotate.c\
+					sort_utils.c\
+					sort.c\
+					stack_op.c\
+					swap.c
 
-SRC		= main.c \
-		input_check.c input_check_utils.c \
-		initialization.c \
-		stack.c \
-		swap.c push.c rotate.c reverse_rotate.c \
-		sort_tiny.c sort.c \
-		position.c cost.c do_move.c \
-		utils.c
-SRCS	= $(addprefix $(SRC_PATH), $(SRC))
-OBJ		= $(SRC:.c=.o)
-OBJS	= $(addprefix $(OBJ_PATH), $(OBJ))
-INCS	= -I ./includes/
+OBJS = $(SRCS:%.c=$(BUILD_DIR)/%.o)
 
-all: $(OBJ_PATH) $(NAME) 
+all: $(NAME)
 
-$(OBJ_PATH)%.o: $(SRC_PATH)%.c
-	$(CC) $(CFLAGS) -c $< -o $@ $(INCS)
+$(NAME):$(LIBFT) $(OBJS)
+	@ar rc $(NAME) $(OBJS)
 
-$(OBJ_PATH):
-	mkdir $(OBJ_PATH)
+$(OBJS): $(BUILD_DIR)/%.o: $(SRC_DIR)/%.c
+	@mkdir -p $(@D)
+	@$(CC) $(CFLAGS) -I $(INCS_DIR) -I $(LIBFT_DIR) -c $< -o $@
 
-$(NAME): $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+$(LIBFT):
+	make -C $(LIBFT_DIR)
+	cp $(LIBFT) $(NAME)
 
 clean:
-	rm -rf $(OBJ_PATH)
+	make clean -C $(LIBFT_DIR)
+	$(RM) -r $(BUILD_DIR)
 
 fclean: clean
-	rm -f $(NAME)
+	make fclean -C $(LIBFT_DIR)
+	$(RM) $(NAME)
 
 re: fclean all
+	
+.PHONY: all clean fclean re
