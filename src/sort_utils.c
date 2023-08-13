@@ -6,11 +6,11 @@
 /*   By: rallouan <rallouan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 11:33:40 by rallouan          #+#    #+#             */
-/*   Updated: 2023/08/06 15:50:41 by rallouan         ###   ########.fr       */
+/*   Updated: 2023/08/12 15:02:11 by rallouan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 int	is_sorted(t_stack *stack)
 {
