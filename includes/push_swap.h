@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   push_swap copy.h                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rallouan <rallouan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/29 14:08:47 by rallouan          #+#    #+#             */
-/*   Updated: 2023/08/06 15:53:39 by rallouan         ###   ########.fr       */
+/*   Updated: 2023/08/13 15:43:30 by rallouan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@
 
 # include <unistd.h>
 # include <stdlib.h>
-# include "./libft/libft.h"
+# include <stdio.h>
+# include "../libft/libft.h"
 
 /*
 value     : the number entered
@@ -71,7 +72,7 @@ void		ft_add_head(t_stack **stack, t_stack *new);
 void		ft_add_end(t_stack **stack, t_stack *new);
 int			ft_stack_size(t_stack *stack);
 void		ft_free_stack(t_stack **stack);
-// void		ft_print_stack(t_stack *stack);
+void		ft_print_stack(t_stack *stack);
 
 //moves operations
 t_moves		*create_move(char *move);
@@ -82,14 +83,14 @@ void		ft_free_moves(t_moves **moves);
 
 //push functions
 void		push(t_stack **from, t_stack **to);
-void		push_a(t_stack **stack_a, t_stack **stack_b, t_moves **moves);
-void		push_b(t_stack **stack_a, t_stack **stack_b, t_moves **moves);
+void		push_a(t_stack **stack_b, t_stack **stack_a, t_moves **moves);
+void		push_b(t_stack **stack_b, t_stack **stack_a, t_moves **moves);
 
 //swap functions
 void		swap(t_stack **stack);
 void		swap_a(t_stack **stack_a, t_moves **moves);
-void		swap_b(t_stack *stack_b, t_moves **moves);
-void		swap_both(t_stack *stack_a, t_stack *stack_b, t_moves **moves);
+void		swap_b(t_stack **stack_b, t_moves **moves);
+void		swap_both(t_stack **stack_a, t_stack **stack_b, t_moves **moves);
 
 //rotate functions
 void		rotate(t_stack **stack);
@@ -100,7 +101,7 @@ void		rotate_both(t_stack **stack_a, t_stack **stack_b, t_moves **moves);
 //reverse rotate functions
 void		rev_rotate(t_stack **stack);
 void		rev_rotate_a(t_stack **stack_a, t_moves **moves);
-void		rev_rotate_b(t_stack **stack_a, t_moves **moves);
+void		rev_rotate_b(t_stack **stack_b, t_moves **moves);
 void		rev_rotate_both(t_stack **stack_a,
 				t_stack **stack_b, t_moves **moves);
 
@@ -135,5 +136,5 @@ void		fix_stack(t_stack **stack_a, t_moves **moves);
 
 //Cost moves
 void		cost_moves(t_stack **stack_a, t_stack **stack_b,
-				int **costs, t_moves **moves);
+				int *costs, t_moves **moves);
 #endif
