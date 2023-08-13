@@ -6,11 +6,11 @@
 /*   By: rallouan <rallouan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/29 14:43:05 by rallouan          #+#    #+#             */
-/*   Updated: 2023/08/05 19:48:20 by rallouan         ###   ########.fr       */
+/*   Updated: 2023/08/09 17:42:35 by rallouan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 #include <stdio.h>
 
 //Create a new element of type t_stack
@@ -22,8 +22,8 @@ t_stack	*ft_create_new(int content)
 	if (!elt)
 		return (0);
 	elt->value = content;
-	elt->position = 0;
-	elt->target_pos = 0;
+	elt->position = -1;
+	elt->target_pos = -1;
 	elt->index = 0;
 	elt->cost_a = -1;
 	elt->cost_b = -1;
@@ -56,10 +56,15 @@ void	ft_add_end(t_stack **stack, t_stack *new)
 	else
 	{
 		temp = (*stack);
-		while (temp->next != NULL)
-			temp = temp->next;
-		temp->next = new;
-		new->prev = temp;
+		if (temp == NULL)
+			(*stack) = new;
+		else
+		{
+			while (temp->next != NULL)
+				temp = temp->next;
+			temp->next = new;
+			new->prev = temp;
+		}
 	}
 }
 
@@ -96,13 +101,12 @@ void	ft_free_stack(t_stack **stack)
 }
 
 // //To be removed
-// void	ft_print_stack(t_stack *stack)
-// {
-// 	printf("Stack values: ");
-// 	while (stack)
-// 	{
-// 		printf("%d ", stack->value);
-// 		stack = stack->next;
-// 	}
-// 	printf("\n");
-// }
+void	ft_print_stack(t_stack *stack)
+{
+	while (stack)
+	{
+		printf("%d ", stack->value);
+		stack = stack->next;
+	}
+	printf("\n");
+}
