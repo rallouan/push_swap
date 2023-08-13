@@ -6,11 +6,11 @@
 /*   By: rallouan <rallouan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 14:25:05 by rallouan          #+#    #+#             */
-/*   Updated: 2023/08/05 13:28:56 by rallouan         ###   ########.fr       */
+/*   Updated: 2023/08/13 12:54:47 by rallouan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 #include <stdio.h>
 
 void	error_handling(t_stack **stack_a, t_stack **stack_b, t_moves **moves)
@@ -21,27 +21,29 @@ void	error_handling(t_stack **stack_a, t_stack **stack_b, t_moves **moves)
 		ft_free_stack(stack_b);
 	if (moves && (*moves))
 		ft_free_moves(moves);
-	printf("Error \n");
+	printf("Error\n");
 	exit(1);
 }
 
 //Set position of stack elements
 void	ft_set_pos(t_stack **stack)
 {
+	t_stack	*tmp;
 	int		i;
 
+	tmp = *stack;
 	i = 0;
-	while ((*stack))
+	while (tmp)
 	{
-		(*stack)->position = i;
-		(*stack) = (*stack)->next;
+		tmp->position = i;
+		tmp = tmp->next;
 		i++;
 	}
 }
 
 //setting the indexes of the stack values
 //Helps checking the positions and orders bc you got the smallest value = 1
-void	ft_indexation(t_stack	*stack_a, int size)
+void	ft_indexation(t_stack *stack_a, int size)
 {
 	t_stack		*tmp;
 	t_stack		*peak;
@@ -54,7 +56,7 @@ void	ft_indexation(t_stack	*stack_a, int size)
 		min = MIN_INT;
 		while (tmp)
 		{
-			if (tmp->value == min && tmp->index == 0)
+			if (tmp->value == MIN_INT && tmp->index == 0)
 				tmp->index = 1;
 			if (tmp->value > min && tmp->index == 0)
 			{
@@ -65,7 +67,7 @@ void	ft_indexation(t_stack	*stack_a, int size)
 			else
 				tmp = tmp->next;
 		}
-		if (peak)
+		if (peak != NULL)
 			peak->index = size;
 	}
 }
@@ -79,7 +81,7 @@ int	get_peak_index(t_stack *stack_a)
 	{
 		if (stack_a->index > index)
 			index = stack_a->index;
-		stack_a = stack_a->index;
+		stack_a = stack_a->next;
 	}
 	return (index);
 }
