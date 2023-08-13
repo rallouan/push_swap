@@ -6,7 +6,7 @@
 /*   By: rallouan <rallouan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/29 12:59:32 by rallouan          #+#    #+#             */
-/*   Updated: 2023/08/12 16:47:23 by rallouan         ###   ########.fr       */
+/*   Updated: 2023/08/13 20:13:38 by rallouan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	parse_one_str(t_stack **stack_a, char *argv)
 	arg_list = ft_split(argv, ' ');
 	if (!arg_list)
 		error_handling(NULL, NULL, NULL);
-	else if (!ft_is_valid_input(arg_list))
+	else if (!ft_is_valid_input(arg_list) || !ft_is_number(arg_list[0]))
 		error_handling(NULL, NULL, NULL);
 	else
 	{
