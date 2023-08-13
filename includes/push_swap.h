@@ -6,7 +6,7 @@
 /*   By: rallouan <rallouan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/29 14:08:47 by rallouan          #+#    #+#             */
-/*   Updated: 2023/08/13 18:09:16 by rallouan         ###   ########.fr       */
+/*   Updated: 2023/08/13 18:18:45 by rallouan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 
 # include <unistd.h>
 # include <stdlib.h>
-# include <stdio.h>
 # include "../libft/libft.h"
 
 /*
