@@ -6,11 +6,11 @@
 /*   By: rallouan <rallouan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/29 20:03:24 by rallouan          #+#    #+#             */
-/*   Updated: 2023/07/30 13:57:58 by rallouan         ###   ########.fr       */
+/*   Updated: 2023/08/07 20:47:13 by rallouan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 void	swap(t_stack **stack)
 {
@@ -34,12 +34,12 @@ void	swap_a(t_stack **stack_a, t_moves **moves)
 {
 	t_moves	*m;
 
-	swap(*stack_a);
+	swap(stack_a);
 	m = create_move("sa");
 	ft_add_move(moves, m);
 }
 
-void	swap_b(t_stack *stack_b, t_moves **moves)
+void	swap_b(t_stack **stack_b, t_moves **moves)
 {
 	t_moves	*m;
 
@@ -48,7 +48,7 @@ void	swap_b(t_stack *stack_b, t_moves **moves)
 	ft_add_move(moves, m);
 }
 
-void	swap_both(t_stack *stack_a, t_stack *stack_b, t_moves **moves)
+void	swap_both(t_stack **stack_a, t_stack **stack_b, t_moves **moves)
 {
 	t_moves	*m;
 
