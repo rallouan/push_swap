@@ -6,11 +6,11 @@
 /*   By: rallouan <rallouan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/30 12:01:00 by rallouan          #+#    #+#             */
-/*   Updated: 2023/07/30 14:30:11 by rallouan         ###   ########.fr       */
+/*   Updated: 2023/08/09 15:25:20 by rallouan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 //Make the list circular
 //Shift head by one position forward
