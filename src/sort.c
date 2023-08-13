@@ -6,16 +6,18 @@
 /*   By: rallouan <rallouan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 11:33:07 by rallouan          #+#    #+#             */
-/*   Updated: 2023/08/06 15:51:42 by rallouan         ###   ########.fr       */
+/*   Updated: 2023/08/13 15:11:22 by rallouan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 void	sort_three(t_stack **stack_a, t_moves **moves)
 {
 	int		peak;
 
+	if (is_sorted(*stack_a))
+		return ;
 	peak = get_peak_index(*stack_a);
 	if ((*stack_a)->index == peak)
 		rotate_a(stack_a, moves);
