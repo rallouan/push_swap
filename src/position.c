@@ -6,11 +6,11 @@
 /*   By: rallouan <rallouan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/05 14:43:02 by rallouan          #+#    #+#             */
-/*   Updated: 2023/08/06 15:23:33 by rallouan         ###   ########.fr       */
+/*   Updated: 2023/08/13 15:12:47 by rallouan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 //Returns the position of the elt with smallest index
 int	ft_min_index_pos(t_stack **stack)
@@ -21,7 +21,8 @@ int	ft_min_index_pos(t_stack **stack)
 
 	tmp = *stack;
 	min_index = MAX_INT;
-	min_pos = tmp->index;
+	ft_set_pos(stack);
+	min_pos = tmp->position;
 	while (tmp)
 	{
 		if (tmp->index < min_index)
@@ -72,6 +73,7 @@ int	ft_get_target_pos(t_stack **stack_a, int index_b,
 }
 
 //get target position for all elements of stack_b
+//The segfault is happening here I guess
 void	ft_get_all_targets(t_stack **stack_a, t_stack **stack_b)
 {
 	t_stack		*tmp;
@@ -83,7 +85,7 @@ void	ft_get_all_targets(t_stack **stack_a, t_stack **stack_b)
 	target = 0;
 	while (tmp)
 	{
-		target = get_target(stack_a, tmp->index, MAX_INT, target);
+		target = ft_get_target_pos(stack_a, tmp->index, MAX_INT, target);
 		tmp->target_pos = target;
 		tmp = tmp->next;
 	}
@@ -106,8 +108,8 @@ void	set_cost(t_stack **stack_a, t_stack **stack_b)
 
 	tmp_a = (*stack_a);
 	tmp_b = (*stack_b);
-	size_a = ft_stack_size(stack_a);
-	size_b = ft_stack_size(stack_b);
+	size_a = ft_stack_size(*stack_a);
+	size_b = ft_stack_size(*stack_b);
 	while (tmp_b)
 	{
 		tmp_b->cost_b = tmp_b->position;
@@ -126,23 +128,22 @@ void	cost_effective_move(t_stack **stack_a,
 {
 	t_stack		*tmp;
 	int			best;
-	int			*costs;
-	int			sum_cost;
+	int			costs[2];
+	// int			sum_cost;
 
+	// ft_print_stack(*stack_b);
+	// ft_print_stack(*stack_a);
 	tmp = (*stack_b);
 	best = MAX_INT;
-	costs = (int *) malloc(2 * sizeof(int));
 	while (tmp)
 	{
-		sum_cost = abs(tmp->cost_a) + abs(tmp->cost_b);
-		if (sum_cost < abs(best))
+		if (abs(tmp->cost_a) + abs(tmp->cost_b) < abs(best))
 		{
-			best = sum_cost;
+			best = abs(tmp->cost_b) + abs(tmp->cost_a);
 			costs[0] = tmp->cost_a;
-			costs [1] = tmp->cost_b;
+			costs[1] = tmp->cost_b;
 		}
 		tmp = tmp->next;
 	}
-	cost_moves(stack_a, stack_b, &costs, moves);
-	free(costs);
+	cost_moves(stack_a, stack_b, costs, moves);
 }
