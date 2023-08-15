@@ -6,12 +6,11 @@
 /*   By: rallouan <rallouan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/29 14:43:05 by rallouan          #+#    #+#             */
-/*   Updated: 2023/08/13 18:09:06 by rallouan         ###   ########.fr       */
+/*   Updated: 2023/08/13 20:43:29 by rallouan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-#include <stdio.h>
 
 //Create a new element of type t_stack
 t_stack	*ft_create_new(int content)

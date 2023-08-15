@@ -6,11 +6,12 @@
 /*   By: rallouan <rallouan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/05 13:03:45 by rallouan          #+#    #+#             */
-/*   Updated: 2023/08/13 17:45:35 by rallouan         ###   ########.fr       */
+/*   Updated: 2023/08/14 20:26:06 by rallouan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+#include <stdio.h>
 
 int	main(int argc, char **argv)
 {
